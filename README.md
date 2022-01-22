@@ -13,6 +13,25 @@ App hosted, with some changes, on [Heroku](https://www.heroku.com/):
 ## Database
 RDS hosted with [Amazon Relational Database Service (RDS)](https://aws.amazon.com/rds/)
 
+## Installation
+
+Clone the repository to your local machine and from the project root build using [Maven](https://maven.apache.org/what-is-maven.html)
+
+Run `mvn clean install -X` to get a `.jar` file, which you can run from the `./target` directory like this:
+```
+java -jar springboot-crud-rest-aws-0.0.1-SNAPSHOT.jar
+```
+
+If you're having issues with [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), you may need to enable CORS by editing your `UserController.java` file like so:
+
+```
+@RestController
+@CrossOrigin(origins = "https://your-front-end.app")
+@RequestMapping("/api/users")
+public class UserController {
+```
+Importing `import org.springframework.web.bind.annotation.CrossOrigin;`
+
 ## Ending GIF
 
 Ask <a href="mailto:joe@holyculture.org">Joe Johnson</a> if you have any questions!
